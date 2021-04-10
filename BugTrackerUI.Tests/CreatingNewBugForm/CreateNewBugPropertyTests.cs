@@ -15,6 +15,7 @@ namespace M3_BugTrackerUI.Tests.CreatingNewBugForm
         [Fact(DisplayName = "Create the AddBug Property @create-addbug-property")]
         public void CreateNewBugPropertyTest()
         {
+
             var filePath = TestHelpers.GetRootString() + "BugTrackerUI"
                 + Path.DirectorySeparatorChar + "Pages"
                 + Path.DirectorySeparatorChar + "NewBug.razor";
@@ -23,11 +24,13 @@ namespace M3_BugTrackerUI.Tests.CreatingNewBugForm
 
             var newBug = TestHelpers.GetClassType("BugTrackerUI.Pages.NewBug");
 
+            var z = newBug.GetProperties();
+
             var prop = newBug.GetProperty("AddBug");
 
             Assert.True(prop != null && prop.PropertyType.Name.Contains("Bug")
-                && newBug.IsPublic
-                && newBug.GetProperty("AddBug").Name.Contains("AddBug"),
+                && newBug.IsPublic,
+                //&& newBug.GetProperty("AddBug").Name.Contains("AddBug"),
                 "`NewBug.razor` should contain a public property `AddBug` of type `Bug`.");
         }
     }
