@@ -24,8 +24,6 @@ namespace M3_BugTrackerUI.Tests.CreatingNewBugForm
 
             var newBug = TestHelpers.GetClassType("BugTrackerUI.Pages.NewBug");
 
-            var z = newBug.GetProperties();
-
             var prop = newBug.GetProperty("AddBug");
 
             Assert.True(prop != null && prop.PropertyType.Name.Contains("Bug")
